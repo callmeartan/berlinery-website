@@ -104,7 +104,7 @@ export default function RestaurantApp() {
         image: "/placeholder.svg?height=80&width=80",
       },
     ],
-    "donuts-berlinery": [
+    donuts: [
       {
         name: "Classic Glazed Donut",
         description: "Light and fluffy with vanilla glaze",
@@ -113,6 +113,15 @@ export default function RestaurantApp() {
         prepTime: "Ready now",
         image: "/placeholder.svg?height=80&width=80",
       },
+      {
+        name: "Cinnamon Sugar Donut",
+        description: "Warm donut rolled in cinnamon sugar",
+        price: "$3.50",
+        prepTime: "Ready now",
+        image: "/placeholder.svg?height=80&width=80",
+      },
+    ],
+    berlinery: [
       {
         name: "Raspberry Berliner",
         description: "Traditional German pastry filled with raspberry jam",
@@ -127,13 +136,6 @@ export default function RestaurantApp() {
         prepTime: "Ready now",
         image: "/placeholder.svg?height=80&width=80",
       },
-      {
-        name: "Cinnamon Sugar Donut",
-        description: "Warm donut rolled in cinnamon sugar",
-        price: "$3.50",
-        prepTime: "Ready now",
-        image: "/placeholder.svg?height=80&width=80",
-      },
     ],
   }
 
@@ -141,7 +143,8 @@ export default function RestaurantApp() {
     { id: "cold-drinks", name: "Cold Drinks", icon: Snowflake },
     { id: "hot-drinks", name: "Hot Drinks", icon: Coffee },
     { id: "sweets", name: "Sweets", icon: Cookie },
-    { id: "donuts-berlinery", name: "Donuts & Berlinery", icon: Donut },
+    { id: "donuts", name: "Donuts", icon: Donut },
+    { id: "berlinery", name: "Berlinery", icon: Donut },
   ]
 
   if (currentView === "landing") {
