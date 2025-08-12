@@ -140,6 +140,96 @@
   color: var(--deep-sage);
 }
 
+.bg-deep-sage {
+  background-color: var(--deep-sage);
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--deep-sage);
+  color: white;
+  border-radius: 0.75rem;
+  height: 3.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 8px 20px rgba(77, 107, 91, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+.btn-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(168, 213, 186, 0.45);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--deep-sage);
+  border: 2px solid var(--pastel-green);
+  border-radius: 0.75rem;
+  height: 3.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-outline:hover {
+  background-color: rgba(168, 213, 186, 0.12);
+  transform: translateY(-1px);
+}
+
+.btn-outline:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(168, 213, 186, 0.35);
+}
+
+/* Chips */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  border-radius: 9999px;
+  font-family: var(--font-open-sans);
+  font-weight: 600;
+  color: rgba(77, 107, 91, 0.7);
+  transition: all 0.2s ease;
+}
+
+.chip:hover {
+  color: var(--deep-sage);
+  background-color: rgba(168, 213, 186, 0.1);
+}
+
+.chip-active {
+  background-color: var(--pastel-green);
+  color: var(--deep-sage);
+  box-shadow: 0 6px 16px rgba(77, 107, 91, 0.12);
+}
+
+/* Badges */
+.price-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.6rem;
+  border-radius: 0.5rem;
+  background-color: var(--deep-sage);
+  color: white;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.subtle-shadow {
+  box-shadow: 0 20px 35px -10px rgba(77, 107, 91, 0.18), 0 10px 15px -10px rgba(0,0,0,0.08);
+}
+
 .text-soft-coral {
   color: var(--soft-coral);
 }

@@ -1,13 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import Link from "next/link"
 import { Card } from "@/components/ui/card"
-import { Instagram, Menu, Coffee, Snowflake, Cookie, Donut, Star, Clock } from "lucide-react"
+import { Coffee, Snowflake, Cookie, Donut, Star, Clock } from "lucide-react"
 
-export default function RestaurantApp() {
-  const [currentView, setCurrentView] = useState<"landing" | "menu">("landing")
+export default function MenuPage() {
   const [activeCategory, setActiveCategory] = useState("cold-drinks")
 
   const menuItems = {
@@ -144,87 +142,20 @@ export default function RestaurantApp() {
     { id: "donuts-berlinery", name: "Donuts & Berlinery", icon: Donut },
   ]
 
-  if (currentView === "landing") {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-white to-warm-gray flex items-center justify-center p-6">
-        <div className="max-w-xl w-full fade-in-up">
-          <div className="bg-white/80 backdrop-blur rounded-3xl border border-pastel-green/30 shadow-xl p-8 sm:p-10">
-            <div className="text-center space-y-6">
-              {/* Logo/Brand */}
-              <div className="mx-auto">
-                <Image
-                  src="/berlinery.png?v=2"
-                  alt="The Berlinery logo"
-                  width={320}
-                  height={320}
-                  priority
-                  className="mx-auto h-40 w-auto object-contain drop-shadow"
-                />
-              </div>
-              <div className="space-y-2">
-                <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 font-sans tracking-tight">The Berlinery</h1>
-                <p className="text-gray-600 font-serif text-lg sm:text-xl">Handmade Berliners and specialty coffee, baked fresh every morning.</p>
-              </div>
-
-              {/* Primary actions */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <a
-                  href="/menu"
-                  aria-label="Browse the menu"
-                  className="btn-primary inline-flex items-center justify-center antialiased"
-                  style={{ textShadow: "0 1px 1px rgba(0,0,0,0.25)" }}
-                >
-                  <Menu className="w-6 h-6 mr-3" />
-                  Browse Menu
-                </a>
-                <a
-                  href="https://www.instagram.com/theberlinerybeylikduzu/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-outline inline-flex items-center justify-center text-lg"
-                  aria-label="Visit our Instagram"
-                >
-                  <Instagram className="w-6 h-6 mr-3" />
-                  Instagram
-                </a>
-              </div>
-
-              {/* Selling points */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 text-deep-sage/80">
-                <div className="flex items-center justify-center gap-2 rounded-xl bg-warm-gray p-3 subtle-shadow">
-                  <Donut className="w-5 h-5" />
-                  <span className="font-serif">Fresh daily</span>
-                </div>
-                <div className="flex items-center justify-center gap-2 rounded-xl bg-warm-gray p-3 subtle-shadow">
-                  <Coffee className="w-5 h-5" />
-                  <span className="font-serif">Specialty coffee</span>
-                </div>
-                <div className="flex items-center justify-center gap-2 rounded-xl bg-warm-gray p-3 subtle-shadow">
-                  <Star className="w-5 h-5" />
-                  <span className="font-serif">Locally loved</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-pastel-green/20 z-10">
         <div className="max-w-4xl mx-auto px-4 py-5">
           <div className="flex items-center justify-between">
-            <button
-              onClick={() => setCurrentView("landing")}
+            <Link
+              href="/"
               className="text-deep-sage hover:text-deep-sage/70 font-sans font-semibold text-lg transition-colors"
             >
               ← The Berlinery
-            </button>
+            </Link>
             <h2 className="text-2xl font-bold text-deep-sage font-sans">Menu</h2>
-            <div className="w-16"></div>
+            <div className="w-16" />
           </div>
         </div>
       </div>
@@ -239,11 +170,7 @@ export default function RestaurantApp() {
                 <button
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
-                  className={`category-button flex items-center gap-3 px-6 py-3 rounded-full whitespace-nowrap font-serif font-medium transition-all ${
-                    activeCategory === category.id
-                      ? "pastel-green text-deep-sage shadow-md"
-                      : "text-deep-sage/60 hover:text-deep-sage hover:bg-pastel-green/10"
-                  }`}
+                  className={`chip ${activeCategory === category.id ? "chip-active" : ""}`}
                 >
                   <Icon className="w-5 h-5" />
                   {category.name}
@@ -258,7 +185,7 @@ export default function RestaurantApp() {
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="space-y-6">
           {menuItems[activeCategory as keyof typeof menuItems].map((item, index) => (
-            <Card key={index} className="menu-card p-6 rounded-2xl">
+            <Card key={index} className="menu-card p-6 rounded-2xl subtle-shadow">
               <div className="flex gap-6">
                 <div className="flex-shrink-0">
                   <img
@@ -267,7 +194,6 @@ export default function RestaurantApp() {
                     className="w-20 h-20 rounded-xl object-cover shadow-md"
                   />
                 </div>
-
                 <div className="flex-1 space-y-3">
                   <div className="flex items-start justify-between gap-4">
                     <div className="space-y-2">
@@ -286,7 +212,7 @@ export default function RestaurantApp() {
                         {item.prepTime}
                       </div>
                     </div>
-                    <div className="text-2xl font-bold text-deep-sage font-sans">{item.price}</div>
+                    <div className="price-badge">{item.price}</div>
                   </div>
                 </div>
               </div>
