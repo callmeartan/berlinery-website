@@ -145,43 +145,57 @@ export default function RestaurantApp() {
 
   if (currentView === "landing") {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-white to-warm-gray flex flex-col items-center justify-center p-6">
-        <div className="max-w-md w-full text-center space-y-8 fade-in-up">
-          {/* Logo/Brand */}
-          <div className="space-y-4">
-            <div className="w-24 h-24 mx-auto pastel-green rounded-full flex items-center justify-center pulse-gentle shadow-lg">
-              <div className="text-deep-sage text-3xl font-bold font-sans">V</div>
+      <div className="min-h-screen bg-gradient-to-br from-white to-warm-gray flex items-center justify-center p-6">
+        <div className="max-w-xl w-full fade-in-up">
+          <div className="bg-white/80 backdrop-blur rounded-3xl border border-pastel-green/30 shadow-xl p-8 sm:p-10">
+            <div className="text-center space-y-6">
+              {/* Logo/Brand */}
+              <img
+                src="/berlinery_logo.png"
+                alt="The Berlinery logo"
+                className="mx-auto h-28 w-auto object-contain drop-shadow"
+              />
+              <div className="space-y-2">
+                <h1 className="text-4xl sm:text-5xl font-bold text-deep-sage font-sans tracking-tight">The Berlinery</h1>
+                <p className="text-deep-sage/70 font-serif text-lg sm:text-xl">Handmade Berliners and specialty coffee, baked fresh every morning.</p>
+              </div>
+
+              {/* Primary actions */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <Button
+                  onClick={() => setCurrentView("menu")}
+                  className="h-14 text-lg font-semibold bg-deep-sage hover:bg-deep-sage/90 text-white rounded-xl hover-scale shadow-md border-0"
+                >
+                  <Menu className="w-6 h-6 mr-3" />
+                  Browse Menu
+                </Button>
+                <Button
+                  onClick={() => window.open("https://instagram.com/theberlinery", "_blank")}
+                  variant="outline"
+                  className="h-14 text-lg font-semibold rounded-xl border-2 border-pastel-green text-deep-sage hover:bg-pastel-green/10 hover-scale shadow-md"
+                  aria-label="Visit our Instagram"
+                >
+                  <Instagram className="w-6 h-6 mr-3" />
+                  Instagram
+                </Button>
+              </div>
+
+              {/* Selling points */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 text-deep-sage/80">
+                <div className="flex items-center justify-center gap-2 rounded-xl bg-warm-gray p-3">
+                  <Donut className="w-5 h-5" />
+                  <span className="font-serif">Fresh daily</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 rounded-xl bg-warm-gray p-3">
+                  <Coffee className="w-5 h-5" />
+                  <span className="font-serif">Specialty coffee</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 rounded-xl bg-warm-gray p-3">
+                  <Star className="w-5 h-5" />
+                  <span className="font-serif">Locally loved</span>
+                </div>
+              </div>
             </div>
-            <div className="space-y-3">
-              <h1 className="text-4xl font-bold text-deep-sage font-sans tracking-tight">Welcome to Verde</h1>
-              <p className="text-deep-sage/70 font-serif text-xl leading-relaxed">
-                Scan, browse, and enjoy — your dining experience, simplified.
-              </p>
-            </div>
-          </div>
-
-          {/* Main Action Buttons */}
-          <div className="space-y-4">
-            <Button
-              onClick={() => setCurrentView("menu")}
-              className="w-full h-18 text-xl font-semibold bg-deep-sage hover:bg-deep-sage/90 text-white rounded-2xl hover-scale shadow-xl border-0"
-            >
-              <Menu className="w-7 h-7 mr-4" />
-              View Menu
-            </Button>
-
-            <Button
-              onClick={() => window.open("https://instagram.com", "_blank")}
-              variant="outline"
-              className="w-full h-18 text-xl font-semibold border-2 border-pastel-green text-deep-sage hover:bg-pastel-green/10 rounded-2xl hover-scale shadow-lg"
-            >
-              <Instagram className="w-7 h-7 mr-4" />
-              Follow on Instagram
-            </Button>
-          </div>
-
-          <div className="pt-4">
-            <p className="text-sm text-deep-sage/50 font-serif italic">See what's fresh today</p>
           </div>
         </div>
       </div>
@@ -198,7 +212,7 @@ export default function RestaurantApp() {
               onClick={() => setCurrentView("landing")}
               className="text-deep-sage hover:text-deep-sage/70 font-sans font-semibold text-lg transition-colors"
             >
-              ← Verde
+              ← The Berlinery
             </button>
             <h2 className="text-2xl font-bold text-deep-sage font-sans">Menu</h2>
             <div className="w-16"></div>
@@ -275,7 +289,7 @@ export default function RestaurantApp() {
       {/* Footer */}
       <div className="bg-warm-gray mt-16 py-12">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-2">
-          <p className="text-deep-sage/60 font-serif text-lg">Thank you for choosing Verde</p>
+          <p className="text-deep-sage/60 font-serif text-lg">Thank you for choosing The Berlinery</p>
           <p className="text-deep-sage/40 font-serif text-sm">Fresh ingredients, crafted with care</p>
         </div>
       </div>

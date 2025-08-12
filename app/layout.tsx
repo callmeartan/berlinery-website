@@ -16,8 +16,8 @@ const openSans = Open_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "Verde Restaurant",
-  description: "Scan, browse, and enjoy — your dining experience, simplified.",
+  title: "The Berlinery",
+  description: "Fresh donuts and coffee — handcrafted daily.",
   generator: "v0.dev",
 }
 
