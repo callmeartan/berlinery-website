@@ -33,7 +33,7 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto px-4 py-5 flex items-center justify-between">
           <Link href="/" className="text-deep-sage font-sans font-semibold text-lg">The Berlinery</Link>
           <nav className="flex items-center gap-3">
-            <a href="/menu" className="chip chip-active"><Menu className="w-5 h-5" /> Menüyü Gör</a>
+            <a href="/menu" className="chip chip-active"><Menu className="w-5 h-5" /> Menu</a>
             <a
               href="https://www.instagram.com/theberlinerybeylikduzu/"
               target="_blank"
@@ -48,22 +48,24 @@ export default function LandingPage() {
 
       <main>
         {/* Hero */}
-        <section className="max-w-5xl mx-auto px-4 py-14 sm:py-20 text-center fade-in-up">
+        <section className="max-w-5xl mx-auto px-4 py-4 sm:py-6 text-center fade-in-up">
           <div className="mx-auto">
             <Image
-              src="/berlinery.png?v=2"
-              alt="The Berlinery logo"
+              src="/berlinery-logo.png"
+              alt="Berlinery logo"
               width={320}
               height={320}
+              unoptimized
               priority
               className="mx-auto h-36 w-auto object-contain drop-shadow"
             />
           </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 font-sans tracking-tight mt-6">Berlinery & Özel Kahve</h1>
-          <p className="text-gray-600 font-serif text-lg sm:text-xl mt-3">Her gün taze üretilen Berlinery, Donut ve kahveler.</p>
-          <div className="flex items-center justify-center gap-3 mt-6">
+          <p className="text-deep-sage/70 font-sans text-sm sm:text-base tracking-wide uppercase mt-2">Taze, Sıcak ve Lezzetli</p>
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 font-sans tracking-tight mt-2">The Berlinery</h1>
+          <p className="text-gray-600 font-serif text-lg sm:text-xl mt-3">The Berlinery’de klasik Alman Berliners’ı ve Amerikan donutlarını modern dokunuşlarla deneyimle!</p>
+          <div className="flex items-center justify-center gap-3 mt-4">
             <a href="/menu" className="btn-primary inline-flex items-center">
-              <Menu className="w-5 h-5 mr-2" /> Menüyü Gör
+              <Menu className="w-5 h-5 mr-2" /> Menu
             </a>
             <a
               href="https://www.instagram.com/theberlinerybeylikduzu/"
@@ -74,7 +76,7 @@ export default function LandingPage() {
               <Instagram className="w-5 h-5 mr-2" /> Instagram
             </a>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 text-deep-sage/80">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 text-deep-sage/80">
             <div className="flex items-center justify-center gap-2 rounded-xl bg-warm-gray p-3 subtle-shadow">
               <Donut className="w-5 h-5" />
               <span className="font-serif">Her gün taze</span>

@@ -164,7 +164,7 @@ export default function MenuPage() {
               href="/"
               className="text-deep-sage hover:text-deep-sage/70 font-sans font-semibold text-lg transition-colors"
             >
-              ← The Berlinery
+              ← Berlinery
             </Link>
             <h2 className="text-2xl font-bold text-deep-sage font-sans">Menu</h2>
             <div className="w-16" />

@@ -1,0 +1,13 @@
+{
+  "hosting": [
+    {
+      "site": "the-berlinery",
+      "source": ".",
+      "frameworksBackend": {
+        "region": "europe-west1"
+      }
+    }
+  ]
+}
+
+
