@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { Card } from "@/components/ui/card"
 import { Instagram, Menu, Coffee, Donut, Star, MapPin, Clock, Phone, Navigation, ArrowRight } from "lucide-react"
@@ -27,6 +28,37 @@ export default function LandingPage() {
     },
   ]
 
+  const gallery = [
+    "/gallery/IMG_6757.JPG",
+    "/gallery/IMG_6761.JPG",
+    "/gallery/IMG_6764.JPG",
+    "/gallery/IMG_6766.JPG",
+    "/gallery/IMG_6767.JPG",
+    "/gallery/IMG_6768.JPG",
+  ]
+
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+  const galleryRef = useRef<HTMLDivElement | null>(null)
+
+  const scrollGallery = (direction: 1 | -1) => {
+    const el = galleryRef.current
+    if (!el) return
+    const amount = Math.round(el.clientWidth * 0.8) * direction
+    el.scrollBy({ left: amount, behavior: "smooth" })
+  }
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightboxIndex(null)
+      if (lightboxIndex !== null) {
+        if (e.key === "ArrowRight") setLightboxIndex((i) => (i === null ? null : (i + 1) % gallery.length))
+        if (e.key === "ArrowLeft") setLightboxIndex((i) => (i === null ? null : (i - 1 + gallery.length) % gallery.length))
+      }
+    }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [lightboxIndex, gallery.length])
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-[#f7f7f5]">
       <header className="sticky top-0 z-30 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/75 border-b border-pastel-green/20">
@@ -34,6 +66,7 @@ export default function LandingPage() {
           <Link href="/" className="text-deep-sage font-sans font-semibold text-lg">The Berlinery</Link>
           <nav className="hidden sm:flex items-center gap-2">
             <a href="#featured" className="chip">Öne Çıkanlar</a>
+            <a href="#gallery" className="chip">Galeri</a>
             <a href="#testimonials" className="chip">Yorumlar</a>
             <a href="#visit" className="chip">Ziyaret</a>
           </nav>
@@ -127,6 +160,43 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* Gallery */}
+        <section id="gallery" className="max-w-5xl mx-auto px-4 pb-12">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-2xl font-bold text-deep-sage font-sans">Berlinery’den Kareler</h2>
+            <div className="hidden sm:flex items-center gap-2">
+              <button className="chip" onClick={() => scrollGallery(-1)} aria-label="Önceki">‹</button>
+              <button className="chip" onClick={() => scrollGallery(1)} aria-label="Sonraki">›</button>
+            </div>
+          </div>
+          <div className="relative">
+            <div
+              ref={galleryRef}
+              className="overflow-x-auto scrollbar-none snap-x snap-mandatory"
+            >
+              <div className="flex gap-3 sm:gap-4">
+                {gallery.map((src, idx) => (
+                  <button
+                    key={src}
+                    onClick={() => setLightboxIndex(idx)}
+                    className="group relative snap-center shrink-0 w-[72%] sm:w-[380px] aspect-[4/3] rounded-xl overflow-hidden bg-warm-gray focus:outline-none focus:ring-2 focus:ring-pastel-green"
+                    aria-label={`Fotoğraf ${idx + 1}`}
+                  >
+                    <img src={src} alt={"Galeri görseli " + (idx + 1)} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                    <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-black/10" />
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-10 bg-gradient-to-r from-[var(--color-background)] to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-[var(--color-background)] to-transparent" />
+          </div>
+          <div className="sm:hidden flex items-center justify-center gap-2 mt-4">
+            <button className="chip" onClick={() => scrollGallery(-1)} aria-label="Önceki">‹</button>
+            <button className="chip" onClick={() => scrollGallery(1)} aria-label="Sonraki">›</button>
+          </div>
+        </section>
+
         {/* Testimonials */}
         <section id="testimonials" className="max-w-5xl mx-auto px-4 pb-12">
           <h2 className="text-2xl font-bold text-deep-sage font-sans mb-5">Misafirlerimiz Ne Diyor</h2>
@@ -199,6 +269,31 @@ export default function LandingPage() {
           </div>
         </section>
       </main>
+
+      {lightboxIndex !== null && (
+        <div className="fixed inset-0 z-40 bg-black/80 flex items-center justify-center p-4" onClick={() => setLightboxIndex(null)}>
+          <div className="relative max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
+            <img src={gallery[lightboxIndex]} alt="Büyük görsel" className="w-full h-auto rounded-xl shadow-2xl" />
+            <div className="absolute inset-x-0 -bottom-12 flex items-center justify-center gap-4">
+              <button
+                className="chip bg-white/90"
+                onClick={() => setLightboxIndex((i) => (i === null ? null : (i - 1 + gallery.length) % gallery.length))}
+                aria-label="Önceki"
+              >
+                ‹ Önceki
+              </button>
+              <button className="chip bg-white/90" onClick={() => setLightboxIndex(null)} aria-label="Kapat">Kapat</button>
+              <button
+                className="chip bg-white/90"
+                onClick={() => setLightboxIndex((i) => (i === null ? null : (i + 1) % gallery.length))}
+                aria-label="Sonraki"
+              >
+                Sonraki ›
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <footer className="bg-warm-gray mt-10 py-12">
         <div className="max-w-5xl mx-auto px-4 text-center space-y-2">

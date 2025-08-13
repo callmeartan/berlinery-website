@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import Link from "next/link"
 import { Card } from "@/components/ui/card"
 import { Coffee, Snowflake, Cookie, Donut, Star, Clock } from "lucide-react"
@@ -154,6 +154,10 @@ export default function MenuPage() {
     { id: "cold-drinks", name: "Cold Drinks", icon: Snowflake },
   ]
 
+  const [search, setSearch] = useState("")
+
+  const normalizedSearch = search.trim().toLowerCase()
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -172,7 +176,7 @@ export default function MenuPage() {
         </div>
       </div>
 
-      {/* Category Navigation */}
+      {/* Category Navigation + Search */}
       <div className="sticky top-20 bg-white/95 backdrop-blur-sm border-b border-pastel-green/10 z-10">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex gap-3 overflow-x-auto pb-2">
@@ -190,6 +194,14 @@ export default function MenuPage() {
               )
             })}
           </div>
+          <div className="mt-3">
+            <input
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Ara: donut, kahve, lotus..."
+              className="w-full h-12 px-4 rounded-xl border border-pastel-green focus:outline-none focus:ring-2 focus:ring-[rgba(168,213,186,0.35)]"
+            />
+          </div>
         </div>
       </div>
 
@@ -197,7 +209,11 @@ export default function MenuPage() {
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="space-y-6">
           {(() => {
-            const items = menuItems[activeCategory as keyof typeof menuItems] as Array<any>
+            const items = (menuItems[activeCategory as keyof typeof menuItems] as Array<any>).filter((i) => {
+              if (!normalizedSearch) return true
+              const hay = `${i.name || ""} ${i.description || ""}`.toLowerCase()
+              return hay.includes(normalizedSearch)
+            })
             const renderItem = (item: any, index: number) => (
               <Card key={index} className="menu-card p-6 rounded-2xl subtle-shadow">
                 <div className="flex gap-6">
