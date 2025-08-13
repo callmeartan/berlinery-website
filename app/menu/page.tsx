@@ -19,12 +19,12 @@ export default function MenuPage() {
       { name: "Churchill", description: "", price: "", prepTime: "", image: "" },
     ],
     "hot-drinks": [
-      { name: "Green Tea", description: "", price: "", prepTime: "", image: "" },
-      { name: "Bluebella Tea", description: "", price: "", prepTime: "", image: "" },
-      { name: "Turmella Tea", description: "", price: "", prepTime: "", image: "" },
-      { name: "Jasmine Tea", description: "", price: "", prepTime: "", image: "" },
-      { name: "Orange Flower Tea", description: "", price: "", prepTime: "", image: "" },
-      { name: "Ginglow Tea", description: "", price: "", prepTime: "", image: "" },
+      { name: "Green Tea", description: "Taze ve hafif içimli, doğal antioksidan kaynağı yeşil çay.", price: "", prepTime: "", image: "/Tea/Green Tea.jpg" },
+      { name: "Bluebella Tea", description: "Meyvemsi ve çiçeksi notalarla hafif tatlı, ferahlatıcı bitki çayı.", price: "", prepTime: "", image: "/Tea/Bluebella_Tea.jpeg" },
+      { name: "Turmella Tea", description: "Zerdeçal ve baharat dokunuşlarıyla ısıtan aromatik karışım.", price: "", prepTime: "", image: "/Tea/Turmella_Tea.JPG" },
+      { name: "Jasmine Tea", description: "Yasemin çiçeklerinin zarif kokusuyla yumuşak içim.", price: "", prepTime: "", image: "/Tea/Jasmine Tea.jpg" },
+      { name: "Orange Flower Tea", description: "Portakal çiçeği aromasıyla narin, hafif tatlı ve ferahlatıcı.", price: "", prepTime: "", image: "/Tea/Orange_Flower_Tea.jpeg" },
+      { name: "Ginglow Tea", description: "Zencefil dokunuşuyla ısıtan ve tazeleyen bitki çayı.", price: "", prepTime: "", image: "/Tea/Ginglow_Tea.JPG" },
       { name: "Espresso", description: "", price: "", prepTime: "", image: "" },
       { name: "Americano", description: "", price: "", prepTime: "", image: "" },
       { name: "Cappuccino", description: "", price: "", prepTime: "", image: "" },
@@ -67,73 +67,82 @@ export default function MenuPage() {
     "donuts-berlinery": [
       {
         name: "Frambuazlı Berliner",
-        description: "",
-        price: "100Tl",
+        description: "İçi frambuazlı, üzeri pudra şekerli, (Gerçek lezzet)",
+        price: "100 TL",
         prepTime: "Ready now",
         image: "/berlinery & donut images/berlinery_frambuaz.JPG",
       },
       {
         name: "Karamelli Berliner",
-        description: "",
-        price: "100Tl",
+        description: "İçi karamel dolgulu, üzeri çikolata kaplı",
+        price: "100 TL",
         prepTime: "Ready now",
         image: "/berlinery & donut images/caramel_berliner.JPG",
       },
       {
         name: "Çikolatalı Bavaria Berliner",
         description: "",
-        price: "100Tl",
+        price: "100 TL",
         prepTime: "Ready now",
         image: "/berlinery & donut images/cikolatli_bavaria_berlinery.JPG",
       },
       {
         name: "Gurme KİTKAT Berliner",
-        description: "",
-        price: "100Tl",
+        description: "İçi fındık krema dolgulu, kuvertür çikolata kaplı, üzeri Kitkat parçacıkları ile süslü",
+        price: "110 TL",
+        popular: true,
         prepTime: "Ready now",
         image: "/berlinery & donut images/gurme_kitkat_berlinery.JPG",
       },
       {
         name: "Gurme LOTUS Berliner",
-        description: "",
-        price: "100Tl",
+        description: "İçi lotus kreması, üzeri lotus bisküvi",
+        price: "110 TL",
+        popular: true,
         prepTime: "Ready now",
         image: "/berlinery & donut images/gurme_lotus_berlinery.JPG",
       },
       {
         name: "Nutty Berliner",
-        description: "",
-        price: "100Tl",
+        description: "İçi kakaolu fındık kremalı, üzeri çikolata ile; kaplı, glazesiz",
+        price: "100 TL",
         prepTime: "Ready now",
         image: "/berlinery & donut images/Nutty_berliner.JPG",
       },
       {
         name: "Pembe Süslü Şekerli Donut",
-        description: "",
-        price: "100Tl",
+        description: "İçi sade, üzeri pembe çikolata kaplı, renkli; şekerlerle süslü Donut",
+        price: "100 TL",
         prepTime: "Ready now",
         image: "/berlinery & donut images/pempe_suslu_sekerli_donut.JPG",
       },
       {
         name: "Red Velvet Vişne",
-        description: "",
-        price: "100Tl",
+        description: "İçi vişne dolgulu, dışı pudra şekerli",
+        price: "100 TL",
         prepTime: "Ready now",
         image: "/berlinery & donut images/Red_velvet_visne.JPG",
       },
       {
         name: "Süslü Şekerli Donat",
         description: "",
-        price: "100Tl",
+        price: "100 TL",
         prepTime: "Ready now",
         image: "/berlinery & donut images/suslu_sekerli_donat.JPG",
       },
       {
         name: "Tiremisu Berliner",
-        description: "",
-        price: "100Tl",
+        description: "İçi sade tiramisu, üzeri kahve ve kakao",
+        price: "100 TL",
         prepTime: "Ready now",
         image: "/berlinery & donut images/tiramisu_berliner.JPG",
+      },
+      {
+        name: "Oreo Berliner",
+        description: "Kremalı; üzeri Oreo parçacıkları, içerisinde Oreo",
+        price: "110 TL",
+        prepTime: "Ready now",
+        image: "",
       },
     ],
   }
@@ -196,7 +205,7 @@ export default function MenuPage() {
                     <img
                       src={item.image || "/placeholder.svg"}
                       alt={item.name}
-                      className="w-full h-full object-cover scale-[1.65]"
+                      className={`w-full h-full object-cover ${activeCategory === "donuts-berlinery" ? "scale-[1.65]" : ""}`}
                     />
                   </div>
                   <div className="flex-1 space-y-3">
