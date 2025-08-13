@@ -187,19 +187,21 @@ export default function MenuPage() {
       {/* Menu Items */}
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="space-y-6">
-          {menuItems[activeCategory as keyof typeof menuItems].map((item, index) => (
-            <Card key={index} className="menu-card p-6 rounded-2xl subtle-shadow">
-              <div className="flex gap-6">
-                <div className="flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden shadow-md">
-                  <img
-                    src={item.image || "/placeholder.svg"}
-                    alt={item.name}
-                    className="w-full h-full object-cover scale-[1.65]"
-                  />
-                </div>
+          {(() => {
+            const items = menuItems[activeCategory as keyof typeof menuItems] as Array<any>
+            const renderItem = (item: any, index: number) => (
+              <Card key={index} className="menu-card p-6 rounded-2xl subtle-shadow">
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden shadow-md">
+                    <img
+                      src={item.image || "/placeholder.svg"}
+                      alt={item.name}
+                      className="w-full h-full object-cover scale-[1.65]"
+                    />
+                  </div>
                   <div className="flex-1 space-y-3">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="space-y-2">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="space-y-2">
                         <div className="flex items-center gap-2">
                           <h3 className="text-xl font-semibold text-deep-sage font-sans">{item.name}</h3>
                           {("popular" in item) && (item as any).popular && (
@@ -218,13 +220,34 @@ export default function MenuPage() {
                             {item.prepTime}
                           </div>
                         )}
-                    </div>
+                      </div>
                       {item.price && <div className="price-badge">{item.price}</div>}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Card>
-          ))}
+              </Card>
+            )
+
+            if (activeCategory === "donuts-berlinery") {
+              const berliners = items.filter((i) => (i.name || "").toLowerCase().includes("berliner"))
+              const donuts = items.filter((i) => !(i.name || "").toLowerCase().includes("berliner"))
+
+              return (
+                <>
+                  <h3 className="text-lg font-semibold text-deep-sage font-sans">Berlinery</h3>
+                  <div className="space-y-6">
+                    {berliners.map((item, index) => renderItem(item, index))}
+                  </div>
+                  <h3 className="text-lg font-semibold text-deep-sage font-sans mt-8">Donuts</h3>
+                  <div className="space-y-6">
+                    {donuts.map((item, index) => renderItem(item, index))}
+                  </div>
+                </>
+              )
+            }
+
+            return items.map((item, index) => renderItem(item, index))
+          })()}
         </div>
       </div>
 
