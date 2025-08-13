@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card"
 import { Coffee, Snowflake, Cookie, Donut, Star, Clock } from "lucide-react"
 
 export default function MenuPage() {
-  const [activeCategory, setActiveCategory] = useState("cold-drinks")
+  const [activeCategory, setActiveCategory] = useState("donuts-berlinery")
 
   const menuItems = {
     "cold-drinks": [
@@ -139,10 +139,10 @@ export default function MenuPage() {
   }
 
   const categories = [
-    { id: "cold-drinks", name: "Cold Drinks", icon: Snowflake },
-    { id: "hot-drinks", name: "Hot Drinks", icon: Coffee },
-    { id: "sweets", name: "Sweets", icon: Cookie },
     { id: "donuts-berlinery", name: "Donuts & Berlinery", icon: Donut },
+    { id: "sweets", name: "Sweets", icon: Cookie },
+    { id: "hot-drinks", name: "Hot Drinks", icon: Coffee },
+    { id: "cold-drinks", name: "Cold Drinks", icon: Snowflake },
   ]
 
   return (
@@ -241,6 +241,24 @@ export default function MenuPage() {
                   <h3 className="text-lg font-semibold text-deep-sage font-sans mt-8">Donuts</h3>
                   <div className="space-y-6">
                     {donuts.map((item, index) => renderItem(item, index))}
+                  </div>
+                </>
+              )
+            }
+
+            if (activeCategory === "hot-drinks") {
+              const teas = items.filter((i) => (i.name || "").toLowerCase().includes("tea"))
+              const coffees = items.filter((i) => !(i.name || "").toLowerCase().includes("tea"))
+
+              return (
+                <>
+                  <h3 className="text-lg font-semibold text-deep-sage font-sans">Tea</h3>
+                  <div className="space-y-6">
+                    {teas.map((item, index) => renderItem(item, index))}
+                  </div>
+                  <h3 className="text-lg font-semibold text-deep-sage font-sans mt-8">Coffee</h3>
+                  <div className="space-y-6">
+                    {coffees.map((item, index) => renderItem(item, index))}
                   </div>
                 </>
               )
