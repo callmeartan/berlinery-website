@@ -10,66 +10,28 @@ export default function MenuPage() {
 
   const menuItems = {
     "cold-drinks": [
-      {
-        name: "Iced Matcha Latte",
-        description: "Ceremonial grade matcha with oat milk and vanilla",
-        price: "$5.50",
-        popular: true,
-        prepTime: "3-5 min",
-        image: "/placeholder-7k10t.png",
-      },
-      {
-        name: "Cold Brew Tonic",
-        description: "House cold brew with tonic water and fresh lime",
-        price: "$4.75",
-        prepTime: "2-3 min",
-        image: "/placeholder-asax1.png",
-      },
-      {
-        name: "Hibiscus Lemonade",
-        description: "Refreshing hibiscus tea with fresh lemon and mint",
-        price: "$4.25",
-        prepTime: "2-3 min",
-        image: "/hibiscus-lemonade-mint.png",
-      },
-      {
-        name: "Cucumber Mint Cooler",
-        description: "Sparkling water with muddled cucumber and mint",
-        price: "$3.95",
-        prepTime: "2-3 min",
-        image: "/cucumber-mint-sparkling-water.png",
-      },
+      { name: "Ice Americano", description: "", price: "", prepTime: "", image: "" },
+      { name: "Ice Latte", description: "", price: "", prepTime: "", image: "" },
+      { name: "Ice Mocha", description: "", price: "", prepTime: "", image: "" },
+      { name: "Ice White Mocha", description: "", price: "", prepTime: "", image: "" },
+      { name: "Ice Caramel Mocha", description: "", price: "", prepTime: "", image: "" },
+      { name: "Mojito", description: "", price: "", prepTime: "", image: "" },
+      { name: "Churchill", description: "", price: "", prepTime: "", image: "" },
     ],
     "hot-drinks": [
-      {
-        name: "Signature Cappuccino",
-        description: "Double shot espresso with steamed milk and cinnamon",
-        price: "$4.50",
-        popular: true,
-        prepTime: "4-6 min",
-        image: "/placeholder-wed11.png",
-      },
-      {
-        name: "Golden Turmeric Latte",
-        description: "Warming turmeric blend with coconut milk and honey",
-        price: "$5.25",
-        prepTime: "5-7 min",
-        image: "/placeholder-ewdw7.png",
-      },
-      {
-        name: "Chai Spice Tea",
-        description: "Traditional chai blend with cardamom and ginger",
-        price: "$4.00",
-        prepTime: "4-5 min",
-        image: "/spiced-chai-tea.png",
-      },
-      {
-        name: "Hot Chocolate Deluxe",
-        description: "Rich Belgian chocolate with whipped cream and marshmallows",
-        price: "$4.75",
-        prepTime: "5-7 min",
-        image: "/hot-chocolate-marshmallows.png",
-      },
+      { name: "Green Tea", description: "", price: "", prepTime: "", image: "" },
+      { name: "Bluebella Tea", description: "", price: "", prepTime: "", image: "" },
+      { name: "Turmella Tea", description: "", price: "", prepTime: "", image: "" },
+      { name: "Jasmine Tea", description: "", price: "", prepTime: "", image: "" },
+      { name: "Orange Flower Tea", description: "", price: "", prepTime: "", image: "" },
+      { name: "Ginglow Tea", description: "", price: "", prepTime: "", image: "" },
+      { name: "Espresso", description: "", price: "", prepTime: "", image: "" },
+      { name: "Americano", description: "", price: "", prepTime: "", image: "" },
+      { name: "Cappuccino", description: "", price: "", prepTime: "", image: "" },
+      { name: "Caffè Latte", description: "", price: "", prepTime: "", image: "" },
+      { name: "Caffè Mocha", description: "", price: "", prepTime: "", image: "" },
+      { name: "White Mocha", description: "", price: "", prepTime: "", image: "" },
+      { name: "Caramel Mocha", description: "", price: "", prepTime: "", image: "" },
     ],
     sweets: [
       {
@@ -102,37 +64,76 @@ export default function MenuPage() {
         image: "/placeholder.svg?height=80&width=80",
       },
     ],
-    donuts: [
+    "donuts-berlinery": [
       {
-        name: "Classic Glazed Donut",
-        description: "Light and fluffy with vanilla glaze",
-        price: "$3.25",
-        popular: true,
+        name: "Frambuazlı Berliner",
+        description: "",
+        price: "100Tl",
         prepTime: "Ready now",
-        image: "/placeholder.svg?height=80&width=80",
+        image: "/berlinery & donut images/berlinery_frambuaz.JPG",
       },
       {
-        name: "Cinnamon Sugar Donut",
-        description: "Warm donut rolled in cinnamon sugar",
-        price: "$3.50",
+        name: "Karamelli Berliner",
+        description: "",
+        price: "100Tl",
         prepTime: "Ready now",
-        image: "/placeholder.svg?height=80&width=80",
-      },
-    ],
-    berlinery: [
-      {
-        name: "Raspberry Berliner",
-        description: "Traditional German pastry filled with raspberry jam",
-        price: "$4.50",
-        prepTime: "Ready now",
-        image: "/placeholder.svg?height=80&width=80",
+        image: "/berlinery & donut images/caramel_berliner.JPG",
       },
       {
-        name: "Chocolate Berliner",
-        description: "Filled with rich chocolate cream and dusted with sugar",
-        price: "$4.75",
+        name: "Çikolatalı Bavaria Berliner",
+        description: "",
+        price: "100Tl",
         prepTime: "Ready now",
-        image: "/placeholder.svg?height=80&width=80",
+        image: "/berlinery & donut images/cikolatli_bavaria_berlinery.JPG",
+      },
+      {
+        name: "Gurme KİTKAT Berliner",
+        description: "",
+        price: "100Tl",
+        prepTime: "Ready now",
+        image: "/berlinery & donut images/gurme_kitkat_berlinery.JPG",
+      },
+      {
+        name: "Gurme LOTUS Berliner",
+        description: "",
+        price: "100Tl",
+        prepTime: "Ready now",
+        image: "/berlinery & donut images/gurme_lotus_berlinery.JPG",
+      },
+      {
+        name: "Nutty Berliner",
+        description: "",
+        price: "100Tl",
+        prepTime: "Ready now",
+        image: "/berlinery & donut images/Nutty_berliner.JPG",
+      },
+      {
+        name: "Pembe Süslü Şekerli Donut",
+        description: "",
+        price: "100Tl",
+        prepTime: "Ready now",
+        image: "/berlinery & donut images/pempe_suslu_sekerli_donut.JPG",
+      },
+      {
+        name: "Red Velvet Vişne",
+        description: "",
+        price: "100Tl",
+        prepTime: "Ready now",
+        image: "/berlinery & donut images/Red_velvet_visne.JPG",
+      },
+      {
+        name: "Süslü Şekerli Donat",
+        description: "",
+        price: "100Tl",
+        prepTime: "Ready now",
+        image: "/berlinery & donut images/suslu_sekerli_donat.JPG",
+      },
+      {
+        name: "Tiremisu Berliner",
+        description: "",
+        price: "100Tl",
+        prepTime: "Ready now",
+        image: "/berlinery & donut images/tiramisu_berliner.JPG",
       },
     ],
   }
@@ -141,8 +142,7 @@ export default function MenuPage() {
     { id: "cold-drinks", name: "Cold Drinks", icon: Snowflake },
     { id: "hot-drinks", name: "Hot Drinks", icon: Coffee },
     { id: "sweets", name: "Sweets", icon: Cookie },
-    { id: "donuts", name: "Donuts", icon: Donut },
-    { id: "berlinery", name: "Berlinery", icon: Donut },
+    { id: "donuts-berlinery", name: "Donuts & Berlinery", icon: Donut },
   ]
 
   return (
@@ -190,32 +190,36 @@ export default function MenuPage() {
           {menuItems[activeCategory as keyof typeof menuItems].map((item, index) => (
             <Card key={index} className="menu-card p-6 rounded-2xl subtle-shadow">
               <div className="flex gap-6">
-                <div className="flex-shrink-0">
+                <div className="flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden shadow-md">
                   <img
                     src={item.image || "/placeholder.svg"}
                     alt={item.name}
-                    className="w-20 h-20 rounded-xl object-cover shadow-md"
+                    className="w-full h-full object-cover scale-[1.65]"
                   />
                 </div>
-                <div className="flex-1 space-y-3">
+                  <div className="flex-1 space-y-3">
                   <div className="flex items-start justify-between gap-4">
                     <div className="space-y-2">
-                      <div className="flex items-center gap-2">
-                        <h3 className="text-xl font-semibold text-deep-sage font-sans">{item.name}</h3>
-                        {item.popular && (
-                          <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-pastel-green text-deep-sage text-xs font-medium">
-                            <Star className="w-3 h-3 fill-current" />
-                            Popular
-                          </span>
+                        <div className="flex items-center gap-2">
+                          <h3 className="text-xl font-semibold text-deep-sage font-sans">{item.name}</h3>
+                          {("popular" in item) && (item as any).popular && (
+                            <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-pastel-green text-deep-sage text-xs font-medium">
+                              <Star className="w-3 h-3 fill-current" />
+                              Popular
+                            </span>
+                          )}
+                        </div>
+                        {item.description && (
+                          <p className="text-deep-sage/70 font-serif leading-relaxed text-base">{item.description}</p>
                         )}
-                      </div>
-                      <p className="text-deep-sage/70 font-serif leading-relaxed text-base">{item.description}</p>
-                      <div className="flex items-center gap-1 text-deep-sage/50 text-sm">
-                        <Clock className="w-4 h-4" />
-                        {item.prepTime}
-                      </div>
+                        {item.prepTime && (
+                          <div className="flex items-center gap-1 text-deep-sage/50 text-sm">
+                            <Clock className="w-4 h-4" />
+                            {item.prepTime}
+                          </div>
+                        )}
                     </div>
-                    <div className="price-badge">{item.price}</div>
+                      {item.price && <div className="price-badge">{item.price}</div>}
                   </div>
                 </div>
               </div>
