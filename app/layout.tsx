@@ -28,7 +28,31 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${workSans.variable} ${openSans.variable} antialiased`}>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "The Berlinery",
+              telephone: "+905526659573",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Beylikdüzü Yaşam Sokağı",
+                addressLocality: "İstanbul",
+                addressCountry: "TR",
+              },
+              openingHours: "Mo-Su 16:00-24:00",
+              sameAs: [
+                "https://www.instagram.com/theberlinerybeylikduzu/",
+                "https://maps.google.com/?q=41.0045556,28.6366667",
+              ],
+            }),
+          }}
+        />
+        {children}
+      </body>
     </html>
   )
 }
