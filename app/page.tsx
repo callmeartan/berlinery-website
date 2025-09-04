@@ -9,21 +9,21 @@ import { Instagram, Menu, Coffee, Donut, Star, MapPin, Clock, Phone, Navigation,
 export default function LandingPage() {
   const featured = [
     {
-      name: "Frambuazlı Berliner",
-      description: "İçi frambuazlı, üzeri pudra şekerli",
-      price: "100 TL",
+      name: "Frambuaz Berliner",
+      description: "Gerçek frambuaz dolgulu, hafif pudra dokunuşu",
+      price: "110 TL",
       image: "/berlinery & donut images/berlinery_frambuaz.JPG",
     },
     {
-      name: "Gurme LOTUS Berlinery",
-      description: "İçi lotus kreması, üzeri lotus bisküvi",
-      price: "110 TL",
+      name: "Gurme Lotus Berliner",
+      description: "Lotus krema dolgulu, bisküvi kaplı",
+      price: "120 TL",
       image: "/berlinery & donut images/gurme_lotus_berlinery.JPG",
     },
     {
-      name: "Pembe Süslü Şekerli Donut",
-      description: "İçi sade, üzeri pembe çikolata; renkli şekerlerle",
-      price: "100 TL",
+      name: "Süslü pembe şekerli Donut",
+      description: "Pembe çikolata kaplı, renkli şekerlerle süslü",
+      price: "110 TL",
       image: "/berlinery & donut images/pempe_suslu_sekerli_donut.JPG",
     },
   ]
