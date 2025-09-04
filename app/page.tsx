@@ -70,8 +70,8 @@ export default function LandingPage() {
             <a href="#testimonials" className="chip">Yorumlar</a>
             <a href="#visit" className="chip">Ziyaret</a>
           </nav>
-          <div className="flex items-center gap-2">
-            <a href="/menu" className="chip chip-active"><Menu className="w-5 h-5" /> Menu</a>
+          <div className="hidden sm:flex items-center gap-2">
+            <a href="/menu" className="chip chip-active"><Menu className="w-5 h-5" /> Menü</a>
             <a
               href="https://www.instagram.com/theberlinerybeylikduzu/"
               target="_blank"
@@ -102,12 +102,12 @@ export default function LandingPage() {
               className="mx-auto h-36 w-auto object-contain drop-shadow"
             />
           </div>
-          <p className="text-deep-sage/70 font-sans text-sm sm:text-base tracking-wide uppercase mt-2">Taze, Sıcak ve Lezzetli</p>
+          <p className="text-deep-sage/70 font-sans text-sm sm:text-base tracking-wide uppercase mt-2">Taze ve Lezzetli</p>
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 font-sans tracking-tight mt-2">The Berlinery</h1>
           <p className="text-gray-600 font-serif text-lg sm:text-xl mt-3">The Berlinery’de klasik Alman Berliners’ı ve Amerikan donutlarını modern dokunuşlarla deneyimle!</p>
           <div className="flex items-center justify-center gap-3 mt-4">
             <a href="/menu" className="btn-primary inline-flex items-center">
-              <Menu className="w-5 h-5 mr-2" /> Menu
+              <Menu className="w-5 h-5 mr-2" /> Menü
             </a>
             <a
               href="https://www.instagram.com/theberlinerybeylikduzu/"
@@ -295,24 +295,43 @@ export default function LandingPage() {
         </div>
       )}
 
-      <footer className="bg-warm-gray mt-10 py-12">
-        <div className="max-w-5xl mx-auto px-4 text-center space-y-2">
-          <p className="text-deep-sage/60 font-serif text-lg">The Berlinery'yi tercih ettiğiniz için teşekkürler</p>
-          <p className="text-deep-sage/40 font-serif text-sm">Taze malzemeler, özenle hazırlanır</p>
-          <p className="text-deep-sage/70 font-serif text-base">
-            <a href="tel:+905526659573" className="hover:underline">+90 552 665 95 73</a>
-          </p>
+      <footer className="bg-warm-gray mt-16 py-12">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="text-center space-y-4">
+            <p className="text-deep-sage/60 font-serif text-lg">
+              The Berlinery'yi tercih ettiğiniz için teşekkürler
+            </p>
+            <p className="text-deep-sage/40 font-serif text-sm">
+              Taze malzemeler, özenle hazırlanır
+            </p>
+            <div className="flex justify-center items-center gap-6 pt-4">
+              <a
+                href="https://www.instagram.com/theberlinerybeylikduzu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-deep-sage/50 hover:text-deep-sage transition-colors"
+                aria-label="Instagram'da bizi takip edin"
+              >
+                <Instagram className="w-6 h-6" />
+              </a>
+              <span className="text-deep-sage/30 text-sm">•</span>
+              <a
+                href="tel:+905526659573"
+                className="text-deep-sage/50 hover:text-deep-sage transition-colors text-sm flex items-center gap-2"
+              >
+                <Phone className="w-4 h-4" />
+                +90 552 665 95 73
+              </a>
+            </div>
+            <div className="border-t border-deep-sage/10 pt-6 mt-6">
+              <p className="text-deep-sage/40 text-xs font-serif">
+                © 2025 The Berlinery
+              </p>
+            </div>
+          </div>
         </div>
       </footer>
 
-      {/* Mobile call button */}
-      <a
-        href="tel:+905526659573"
-        className="sm:hidden fixed bottom-5 right-5 btn-primary rounded-full h-12 px-5 inline-flex items-center shadow-lg"
-        aria-label="Telefon ile ara"
-      >
-        <Phone className="w-5 h-5 mr-2" /> Ara
-      </a>
     </div>
   )
 }

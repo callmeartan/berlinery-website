@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react"
 import Link from "next/link"
 import { Card } from "@/components/ui/card"
-import { Coffee, Snowflake, Cookie, Donut, Star, Clock } from "lucide-react"
+import { Coffee, Snowflake, Cookie, Donut, Instagram, Phone } from "lucide-react"
 
 export default function MenuPage() {
   const [activeCategory, setActiveCategory] = useState("donuts-berlinery")
@@ -45,94 +45,80 @@ export default function MenuPage() {
       { name: "Caramel Mocha", description: "Karamel ve espresso dengesi", price: "195 TL", prepTime: "", image: "" },
     ],
     sweets: [
-      { name: "Macaron", description: "Fındık içi dolgulu hafif tatlı", price: "250 TL", prepTime: "", image: "" },
-      { name: "Tiramisu", description: "Mascarpone ve espresso dengesi; hafif tatlı", price: "150 TL", prepTime: "", image: "" },
+      { name: "Macaron", description: "Fındık kremalı Fransız klasik", price: "250 TL", prepTime: "", image: "" },
+      { name: "Tiramisu", description: "Kahveli İtalyan katmanlı tatlı", price: "150 TL", prepTime: "", image: "" },
     ],
     "donuts-berlinery": [
       {
         name: "Frambuaz Berliner",
         description: "Gerçek frambuaz dolgulu, hafif pudra dokunuşu",
         price: "110 TL",
-        prepTime: "Ready now",
         image: "/berlinery & donut images/berlinery_frambuaz.JPG",
       },
       {
         name: "Karamelli Berliner",
         description: "Karamel dolgulu, çikolata kaplı",
         price: "110 TL",
-        prepTime: "Ready now",
         image: "/berlinery & donut images/caramel_berliner.JPG",
       },
       {
         name: "Bavaria kremalı Berliner",
         description: "Bavaria krema dolgusu, çikolata kaplı",
         price: "110 TL",
-        prepTime: "Ready now",
         image: "/berlinery & donut images/cikolatli_bavaria_berlinery.JPG",
       },
       {
         name: "Gurme Kitkat Berliner",
         description: "Fındık krema dolgulu, Kitkat parçalı",
         price: "120 TL",
-        popular: true,
-        prepTime: "Ready now",
         image: "/berlinery & donut images/gurme_kitkat_berlinery.JPG",
       },
       {
         name: "Gurme Lotus Berliner",
         description: "Lotus krema dolgulu, bisküvi kaplı",
         price: "120 TL",
-        popular: true,
-        prepTime: "Ready now",
         image: "/berlinery & donut images/gurme_lotus_berlinery.JPG",
       },
       {
         name: "Nutty Berliner",
         description: "Kakaolu fındık kremalı, çikolata kaplı",
         price: "110 TL",
-        prepTime: "Ready now",
         image: "/berlinery & donut images/Nutty_berliner.JPG",
       },
       {
         name: "Süslü pembe şekerli Donut",
         description: "Pembe çikolata kaplı, renkli şekerlerle süslü",
         price: "110 TL",
-        prepTime: "Ready now",
         image: "/berlinery & donut images/pempe_suslu_sekerli_donut.JPG",
       },
       {
         name: "Red velvet vişne Berliner",
         description: "Vişne dolgulu, pudra şekerli",
         price: "120 TL",
-        prepTime: "Ready now",
         image: "/berlinery & donut images/Red_velvet_visne.JPG",
       },
       {
         name: "Special Berliner",
         description: "Özel tasarım dolgular; mangolu, jelibonlu vb",
         price: "120 TL / 130 TL",
-        prepTime: "Ready now",
         image: "",
       },
       {
         name: "Süslü şekerli Donut",
         description: "Renkli şekerlerle süslü, sade içli",
         price: "110 TL",
-        prepTime: "Ready now",
         image: "/berlinery & donut images/suslu_sekerli_donat.JPG",
       },
       {
         name: "Tiramisu Berliner",
         description: "Tiramisu krema dolgulu, kahve kaplı",
         price: "110 TL",
-        prepTime: "Ready now",
         image: "/berlinery & donut images/tiramisu_berliner.JPG",
       },
       {
         name: "Oreo Berliner",
         description: "Oreo dolgulu, parçalı kaplama",
         price: "110 TL",
-        prepTime: "Ready now",
         image: "",
       },
     ],
@@ -220,21 +206,9 @@ export default function MenuPage() {
                       <div className="space-y-2">
                         <div className="flex items-center gap-2">
                           <h3 className="text-xl font-semibold text-deep-sage font-sans">{item.name}</h3>
-                          {("popular" in item) && (item as any).popular && (
-                            <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-pastel-green text-deep-sage text-xs font-medium">
-                              <Star className="w-3 h-3 fill-current" />
-                              Popular
-                            </span>
-                          )}
                         </div>
                         {item.description && (
                           <p className="text-deep-sage/70 font-serif leading-relaxed text-base">{item.description}</p>
-                        )}
-                        {item.prepTime && (
-                          <div className="flex items-center gap-1 text-deep-sage/50 text-sm">
-                            <Clock className="w-4 h-4" />
-                            {item.prepTime}
-                          </div>
                         )}
                       </div>
                       {item.price && <div className="price-badge">{item.price}</div>}
@@ -285,13 +259,42 @@ export default function MenuPage() {
         </div>
       </div>
 
-      {/* Footer */}
-      <div className="bg-warm-gray mt-16 py-12">
-        <div className="max-w-4xl mx-auto px-4 text-center space-y-2">
-          <p className="text-deep-sage/60 font-serif text-lg">Thank you for choosing The Berlinery</p>
-          <p className="text-deep-sage/40 font-serif text-sm">Fresh ingredients, crafted with care</p>
+      <footer className="bg-warm-gray mt-16 py-12">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="text-center space-y-4">
+            <p className="text-deep-sage/60 font-serif text-lg">
+              The Berlinery'yi tercih ettiğiniz için teşekkürler
+            </p>
+            <p className="text-deep-sage/40 font-serif text-sm">
+              Taze malzemeler, özenle hazırlanır
+            </p>
+            <div className="flex justify-center items-center gap-6 pt-4">
+              <a
+                href="https://www.instagram.com/theberlinerybeylikduzu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-deep-sage/50 hover:text-deep-sage transition-colors"
+                aria-label="Instagram'da bizi takip edin"
+              >
+                <Instagram className="w-6 h-6" />
+              </a>
+              <span className="text-deep-sage/30 text-sm">•</span>
+              <a
+                href="tel:+905526659573"
+                className="text-deep-sage/50 hover:text-deep-sage transition-colors text-sm flex items-center gap-2"
+              >
+                <Phone className="w-4 h-4" />
+                +90 552 665 95 73
+              </a>
+            </div>
+            <div className="border-t border-deep-sage/10 pt-6 mt-6">
+              <p className="text-deep-sage/40 text-xs font-serif">
+                © 2025 The Berlinery
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
+      </footer>
     </div>
   )
 }

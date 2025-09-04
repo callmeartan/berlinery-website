@@ -17,7 +17,7 @@ const openSans = Open_Sans({
 
 export const metadata: Metadata = {
   title: "The Berlinery",
-  description: "Fresh donuts and coffee — handcrafted daily.",
+  description: "Taze donutlar ve kahveler — günlük taze hazırlanır.",
   generator: "v0.dev",
 }
 
@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${workSans.variable} ${openSans.variable} antialiased`}>
+    <html lang="tr" className={`${workSans.variable} ${openSans.variable} antialiased`}>
       <body className="font-sans">
         <script
           type="application/ld+json"
