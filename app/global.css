@@ -144,6 +144,10 @@
   background-color: var(--deep-sage);
 }
 
+.bg-pastel-green {
+  background-color: var(--pastel-green);
+}
+
 /* Buttons */
 .btn-primary {
   background-color: var(--deep-sage);
@@ -232,6 +236,10 @@
 
 .text-soft-coral {
   color: var(--soft-coral);
+}
+
+.bg-soft-coral {
+  background-color: var(--soft-coral);
 }
 
 .bg-warm-gray {

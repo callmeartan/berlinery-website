@@ -148,7 +148,13 @@ export default function MenuPage() {
               ← Berlinery
             </Link>
             <h2 className="text-2xl font-bold text-deep-sage font-sans">Menu</h2>
-            <div className="w-16" />
+            <div className="flex items-center gap-2">
+              {/* Mobile call button */}
+              <a href="tel:+905526659573" className="sm:hidden flex items-center justify-center w-12 h-12 bg-pastel-green rounded-full text-deep-sage shadow-lg hover:bg-deep-sage hover:text-white transition-colors" aria-label="Telefon ile ara">
+                <Phone className="w-5 h-5" />
+              </a>
+              <div className="hidden sm:block w-16" />
+            </div>
           </div>
         </div>
       </div>

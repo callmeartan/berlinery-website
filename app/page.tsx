@@ -85,6 +85,10 @@ export default function LandingPage() {
               <Phone className="w-5 h-5" /> Ara
             </a>
           </div>
+          {/* Mobile call button */}
+          <a href="tel:+905526659573" className="sm:hidden flex items-center justify-center w-12 h-12 bg-pastel-green rounded-full text-deep-sage shadow-lg hover:bg-deep-sage hover:text-white transition-colors" aria-label="Telefon ile ara">
+            <Phone className="w-5 h-5" />
+          </a>
         </div>
       </header>
 
